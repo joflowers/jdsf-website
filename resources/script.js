@@ -6,11 +6,11 @@ const player = {
   x: 400,
   y: 300,
   size: 32,
-  color: '#ffd700', // visible yellow placeholder
+  color: '#ffd700',
   speed: 3,
 };
 
-// Forest objects
+// Forest objects (trees)
 const trees = [
   { x: 100, y: 80 },
   { x: 700, y: 150 },
@@ -19,12 +19,12 @@ const trees = [
   { x: 400, y: 100 },
 ];
 
-// Interactive areas
+// Interactive areas (now also visible signs)
 const areas = [
-  { name: 'home', x: 380, y: 280, w: 60, h: 60 },
-  { name: 'about', x: 100, y: 100, w: 80, h: 80 },
-  { name: 'projects', x: 600, y: 120, w: 80, h: 80 },
-  { name: 'contact', x: 350, y: 500, w: 80, h: 80 },
+  { name: 'home', label: '🏠 Home', x: 370, y: 270, w: 70, h: 70 },
+  { name: 'about', label: '🌿 About', x: 100, y: 100, w: 90, h: 90 },
+  { name: 'projects', label: '🪵 Projects', x: 620, y: 120, w: 90, h: 90 },
+  { name: 'contact', label: '🦉 Contact', x: 350, y: 500, w: 90, h: 90 },
 ];
 
 // Keyboard control
@@ -47,12 +47,28 @@ function drawBackground() {
   ctx.fillStyle = '#204d24';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Draw trees (simple circles for now)
+  // Draw trees
   trees.forEach(tree => {
     ctx.fillStyle = '#0b3d0b';
     ctx.beginPath();
     ctx.arc(tree.x, tree.y, 25, 0, Math.PI * 2);
     ctx.fill();
+  });
+}
+
+function drawAreas() {
+  areas.forEach(area => {
+    // Draw sign background
+    ctx.fillStyle = '#7b4b1f';
+    ctx.fillRect(area.x, area.y, area.w, area.h);
+    ctx.strokeStyle = '#3b2a15';
+    ctx.strokeRect(area.x, area.y, area.w, area.h);
+
+    // Draw text label above sign
+    ctx.fillStyle = 'white';
+    ctx.font = '10px "Press Start 2P"';
+    ctx.textAlign = 'center';
+    ctx.fillText(area.label, area.x + area.w / 2, area.y - 8);
   });
 }
 
@@ -79,7 +95,6 @@ function checkAreas() {
     }
   });
 
-  // Default overlay when not near anything
   if (!anyOpen) {
     document.getElementById('overlay-home').style.display = 'block';
   }
@@ -88,6 +103,7 @@ function checkAreas() {
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBackground();
+  drawAreas();
   movePlayer();
   drawPlayer();
   checkAreas();
