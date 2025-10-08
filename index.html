@@ -1,76 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Personal Website</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="stylesheet" href="./resources/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Adventure | Your Name</title>
+  <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
 
-  <header>
-    <nav>
-      <h1>i'm a website</h1>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Page overlays (hidden until triggered) -->
+  <div id="overlay-home" class="overlay">
+    <h1>Welcome to My Forest</h1>
+    <p>Explore and discover who I am!</p>
+  </div>
 
-  <section class="hero" id="hero">
-    <h2>Hey there! I'm Jo</h2>
-    <p>Welcome to my my little home. I'll be your software developer, engineer or McDonalds employee. Honestly whatever you need I can most likely do it!</p>
-    <button onclick="scrollToContact()">Get in Touch</button>
-  </section>
+  <div id="overlay-about" class="overlay">
+    <h1>About Me</h1>
+    <p>Hi, I'm [Your Name]! I love making creative projects and learning new things.</p>
+  </div>
 
-  <section class="about" id="about">
-    <img src="" alt="my photo didn't load rip">
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>words that talk about me. blah blah blah
-      </p>
-    </div>
-  </section>
+  <div id="overlay-projects" class="overlay">
+    <h1>Projects</h1>
+    <ul>
+      <li>🌲 Project One</li>
+      <li>🔥 Project Two</li>
+      <li>🌙 Project Three</li>
+    </ul>
+  </div>
 
-  <section class="projects" id="projects">
-    <h2>My Things</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>Thing One</h3>
-        <p>Filler</p>
-      </div>
-      <div class="project-card">
-        <h3>Thing Two</h3>
-        <p>Filler</p>
-      </div>
-      <div class="project-card">
-        <h3>Thing Three</h3>
-        <p>Filler</p>
-      </div>
-    </div>
-  </section>
+  <div id="overlay-contact" class="overlay">
+    <h1>Contact</h1>
+    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+  </div>
 
-  <section class="contact" id="contact">
-    <h2>Contact Me</h2>
-    <form onsubmit="return submitForm(event)">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; <span id="year"></span> Jonathan David Flores. All Rights Reserved.</p>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="./resources/js/script.js"></script>
+  <script src="./src/script.js"></script>
 </body>
 </html>

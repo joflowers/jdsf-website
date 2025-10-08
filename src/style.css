@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  background: black;
+  image-rendering: pixelated;
+  font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
+}
+
+/* Canvas game area */
+#gameCanvas {
+  display: block;
+  margin: 0 auto;
+  background: url('forest_bg.png') repeat; /* Use a tiled forest image */
+  background-size: cover;
+  border: 4px solid #3b2f2f;
+}
+
+/* Overlays for each page section */
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(34, 60, 34, 0.9);
+  color: #fff;
+  padding: 30px;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  width: 70%;
+  display: none;
+  z-index: 10;
+  text-align: center;
+  font-size: 14px;
+}
+
+.overlay a {
+  color: #ffeb3b;
+  text-decoration: none;
+}
+
+.overlay h1 {
+  font-size: 18px;
+}
+
+.overlay ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Retro pixel font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
